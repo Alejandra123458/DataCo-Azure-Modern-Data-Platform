@@ -1,2 +1,6 @@
-# DataCo-Azure-Modern-Data-Platform
-Arquitectura cloud moderna para integración, transformación y análisis de datos empresariales usando Azure Data Factory, Databricks y Power BI.
+## Introducción
+La transformación digital en el sector de distribución y consumo masivo exige que las organizaciones cuenten con sistemas capaces de integrar, procesar y analizar grandes volúmenes de datos provenientes de múltiples fuentes en tiempo casi real. En este contexto, la computación en la nube se ha consolidado como la plataforma tecnológica que permite escalar estas capacidades de forma eficiente, segura y con costos controlados.
+
+El presente trabajo corresponde al Caso 2 de la materia Computación en la Nube del Tecnológico de Antioquia, y plantea el diseño e implementación de un pipeline de datos moderno en Microsoft Azure para la empresa colombiana DataCo. El proyecto aborda los problemas críticos de fragmentación de datos, reportes manuales tardíos y toma de decisiones desactualizada que enfrenta la organización, proponiendo una arquitectura cloud basada en servicios administrados que automatiza completamente el flujo de datos desde las fuentes hasta los dashboards ejecutivos.
+
+La arquitectura propuesta sigue los lineamientos de las arquitecturas de referencia oficiales de Microsoft Azure para pipelines de datos modernos, adaptadas al contexto específico de DataCo: sus restricciones presupuestales, las capacidades técnicas de su equipo y los requerimientos de calidad, trazabilidad y escalabilidad definidos por la gerencia de tecnología.
