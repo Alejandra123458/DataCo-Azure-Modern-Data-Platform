@@ -31,11 +31,11 @@ la gerencia comercial toma decisiones de abastecimiento con datos de inventario 
 
 los mismos clientes están registrados con nombres distintos en el ERP y el CRM, y los productos tienen códigos diferentes en Oracle y SAP, imposibilitando cualquier análisis cruzado confiable.
 
-## Sin trazabilidad de entregas: 
+## 4. Sin trazabilidad de entregas: 
 
 No existe forma de correlacionar automáticamente una factura de SAP con su entrega real en el GPS, impidiendo medir el cumplimiento de promesas de entrega por ruta o vendedor.
 
-## Escalabilidad nula: 
+## 5. Escalabilidad nula: 
 
 El servidor de consolidaciones es un equipo de escritorio con Windows Server 2012. En los meses de cierre, el proceso de generación de reportes tarda hasta 8 horas continuas.
 
@@ -54,3 +54,17 @@ El servidor de consolidaciones es un equipo de escritorio con Windows Server 201
 
 - El pipeline debe ser tolerante a fallos parciales por fuente.
 
+## Objetivos del proyecto
+
+## Objetivo general
+
+Diseñar e implementar un pipeline de datos moderno en Microsoft Azure que integre las cuatro fuentes de información de DataCo en un modelo de datos unificado, automatizando el proceso de ingesta, transformación y visualización de datos para reducir el ciclo de toma de decisiones de 3 días a menos de 4 horas.
+
+## Objetivos específicos
+
+**1. Integrar las cuatro fuentes de datos (SAP ERP, Oracle Database, GPS Flota y Salesforce CRM)** en un único flujo automatizado de ingesta mediante Azure Data Factory, eliminando el proceso manual de consolidación en Excel.
+**2. Implementar un proceso de transformación y calidad de datos** en Azure Databricks que resuelva los problemas de inconsistencia de códigos, duplicados y fechas mal formateadas, garantizando una tasa de registros limpios superior al 98%.
+**3. Construir un modelo de datos relacional consolidado** en Azure SQL Database que unifique la información de las cuatro fuentes en tablas de hechos y dimensiones accesibles para análisis desde Power BI Desktop.
+**4. Diseñar una arquitectura tolerante a fallos** que garantice que si una fuente falla en un ciclo de ejecución, los datos de las demás fuentes se procesen igualmente sin intervención manual.
+**5. Garantizar la trazabilidad completa** de cada transformación aplicada en el pipeline mediante registros de auditoría que cumplan las políticas internas de gobierno de datos de DataCo.
+**6. Documentar las decisiones arquitectónicas** mediante Architecture Decision Records (ADRs) que justifiquen la selección de cada servicio del stack frente a sus alternativas, considerando las restricciones técnicas, económicas y organizacionales del proyecto.
