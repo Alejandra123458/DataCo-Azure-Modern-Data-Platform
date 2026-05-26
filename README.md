@@ -449,8 +449,18 @@ Se recomienda a DataCo acompañar la implementación técnica del pipeline con u
 La arquitectura implementada en la fase piloto es una base sólida sobre la cual DataCo puede escalar progresivamente. Se identifican tres caminos de evolución natural:
 
 **Corto plazo:** migrar de Databricks Community Edition a un tier de pago cuando el pipeline pase a producción, garantizando SLA de disponibilidad y soporte técnico para un proceso crítico del negocio.
+
+
+
 **Mediano plazo:** incorporar procesamiento en tiempo real mediante Azure Event Hubs y Databricks Structured Streaming para reducir la latencia de 4 horas a minutos en los datos de ventas e inventario, habilitando alertas automáticas de quiebre de stock.
+
+
+
+
 **Largo plazo:** evaluar la migración del almacén analítico a Azure Synapse Analytics cuando el volumen de datos supere los límites del Free Tier de Azure SQL y el número de usuarios concurrentes de Power BI justifique una capa semántica dedicada.
+
+
+
 
 **Reflexión final**
 
