@@ -407,7 +407,10 @@ Finalmente, el notebook load_warehouse.py carga los datos ya transformados en Az
 
 Adicionalmente, los datos procesados pueden almacenarse en el Data Lake en la zona CURATED en formato Parquet, permitiendo su reutilización y optimización en futuras consultas.
 
+
+
+## Arquitectura de solución - Pipeline de datos DataCo
+
+<img width="1024" height="842" alt="image" src="https://github.com/user-attachments/assets/b039c733-9ebd-4c90-a425-3e625db676ec" />
+
 Este flujo de procesamiento se ejecuta de forma secuencial y automatizada, asegurando que los datos pasen por cada etapa de transformación hasta estar listos para su consumo en herramientas analíticas.
-
-
-
