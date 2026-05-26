@@ -411,6 +411,49 @@ Adicionalmente, los datos procesados pueden almacenarse en el Data Lake en la zo
 
 ## Arquitectura de solución - Pipeline de datos DataCo
 
-<img width="1024" height="842" alt="image" src="https://github.com/user-attachments/assets/b039c733-9ebd-4c90-a425-3e625db676ec" />
+<img width="1164" height="1049" alt="image" src="https://github.com/user-attachments/assets/f28838de-aa90-41b8-aaa2-a5c74ab123d5" />
 
 Este flujo de procesamiento se ejecuta de forma secuencial y automatizada, asegurando que los datos pasen por cada etapa de transformación hasta estar listos para su consumo en herramientas analíticas.
+
+
+
+## Conclusiones
+
+## Sobre el problema resuelto
+
+DataCo enfrentaba una situación crítica común en empresas de distribución de consumo masivo en Colombia: datos valiosos atrapados en sistemas aislados, procesos manuales que consumían días de trabajo y decisiones gerenciales tomadas con información desactualizada. El diseño e implementación del pipeline de datos en Microsoft Azure demuestra que es posible transformar esta realidad con un stack tecnológico moderno, completamente administrado y dentro de un presupuesto controlado de $80 USD mensuales durante la fase piloto.
+El pipeline logra reducir el ciclo de consolidación de datos de 3 a 5 días hábiles a un máximo de 4 horas, cumpliendo el requerimiento principal de la gerencia de tecnología de DataCo y habilitando una toma de decisiones basada en datos reales y actualizados.
+
+## Sobre la arquitectura diseñada
+
+La arquitectura propuesta demuestra que el patrón Modern Analytics Architecture de Microsoft Azure es aplicable no solo a grandes corporaciones con presupuestos ilimitados, sino también a empresas medianas colombianas con restricciones reales de presupuesto, equipo y tiempo. La clave está en la correcta selección de los tiers gratuitos y de bajo costo disponibles en Azure: Databricks Community Edition, Azure SQL Free Tier y Power BI Desktop conforman un stack de transformación y visualización de costo cero, complementado por Azure Data Factory y Data Lake Storage Gen2 con costos mínimos por uso.
+
+La separación del almacenamiento en zonas raw y curated (patrón medallion) resultó fundamental para garantizar la trazabilidad de los datos y permitir la reejección de transformaciones sin pérdida de información original, un principio que toda arquitectura de datos moderna debe contemplar.
+
+
+Sobre las decisiones arquitectónicas
+
+Los cinco ADRs documentados en este proyecto reflejan una lección central de la arquitectura de software: **la mejor decisión técnica no es siempre la más sofisticada, sino la que mejor se ajusta al contexto específico del problema.** Azure Synapse Analytics, Azure Cosmos DB y Azure Analysis Services son tecnologías más completas que sus alternativas seleccionadas, pero en el contexto de DataCo representarían sobrecostos, complejidad innecesaria y una curva de aprendizaje que el equipo no podría absorber en la fase piloto.
+
+La documentación explícita de estas decisiones mediante ADRs es una práctica profesional que agrega valor más allá del proyecto inmediato: permite que futuros integrantes del equipo comprendan por qué se tomaron ciertas decisiones, qué alternativas se evaluaron y qué trade-offs se asumieron conscientemente, evitando que se repita el proceso de evaluación ante cada cambio.
+
+
+## Sobre la calidad de datos
+
+Uno de los hallazgos más relevantes del proyecto es que los problemas de calidad de datos de DataCo no son un problema tecnológico sino un problema de proceso y gobernanza que la tecnología puede resolver pero no puede prevenir por sí sola. La estandarización de códigos de producto entre SAP y Oracle, la normalización de nombres de clientes entre ERP y CRM y la correlación de facturas con entregas GPS son transformaciones que el pipeline ejecuta automáticamente, pero su causa raíz es la ausencia histórica de estándares de datos en la organización.
+
+Se recomienda a DataCo acompañar la implementación técnica del pipeline con un proceso de gobernanza de datos que establezca estándares de nomenclatura, códigos maestros unificados y políticas de calidad en los sistemas fuente, reduciendo progresivamente la carga de limpieza en la capa de transformación.
+
+**Sobre la escalabilidad futura**
+
+La arquitectura implementada en la fase piloto es una base sólida sobre la cual DataCo puede escalar progresivamente. Se identifican tres caminos de evolución natural:
+
+**Corto plazo:** migrar de Databricks Community Edition a un tier de pago cuando el pipeline pase a producción, garantizando SLA de disponibilidad y soporte técnico para un proceso crítico del negocio.
+**Mediano plazo:** incorporar procesamiento en tiempo real mediante Azure Event Hubs y Databricks Structured Streaming para reducir la latencia de 4 horas a minutos en los datos de ventas e inventario, habilitando alertas automáticas de quiebre de stock.
+**Largo plazo:** evaluar la migración del almacén analítico a Azure Synapse Analytics cuando el volumen de datos supere los límites del Free Tier de Azure SQL y el número de usuarios concurrentes de Power BI justifique una capa semántica dedicada.
+
+**Reflexión final**
+
+Este proyecto evidencia que la computación en la nube no es exclusiva de las grandes empresas tecnológicas. Con una arquitectura bien diseñada, decisiones fundamentadas y un uso inteligente de los tiers gratuitos disponibles en Microsoft Azure, una empresa colombiana de distribución puede construir una plataforma de datos moderna, escalable y segura que transforme la manera en que toma decisiones. La nube no es un destino, es un habilitador: el valor real lo generan los datos, el diseño y las personas que los usan.
+
+
