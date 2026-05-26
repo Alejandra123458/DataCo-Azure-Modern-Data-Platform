@@ -464,6 +464,94 @@ La arquitectura implementada en la fase piloto es una base sólida sobre la cual
 
 Este proyecto evidencia que la computación en la nube no es exclusiva de las grandes empresas tecnológicas. Con una arquitectura bien diseñada, decisiones fundamentadas y un uso inteligente de los tiers gratuitos disponibles en Microsoft Azure, una empresa colombiana de distribución puede construir una plataforma de datos moderna, escalable y segura que transforme la manera en que toma decisiones. La nube no es un destino, es un habilitador: el valor real lo generan los datos, el diseño y las personas que los usan.
 
-**Implementacion**
+## Implementacion
+
+**Creación del Data Lake y almacenamiento RAW**
+Se configuró el contenedor RAW dentro de la cuenta de almacenamiento pipelinedatafor.
+Allí se cargó el archivo ventas_dataco.csv en formato CSV, representando la información original de ventas.
+
+Durante esta etapa se validó:
+
+-Creación correcta del contenedor RAW.
+
+-Carga inicial del archivo CSV.
+
+-Disponibilidad de los datos en el Data Lake
+<img width="1836" height="473" alt="image" src="https://github.com/user-attachments/assets/8a715a3e-8405-4c5e-9bfc-03a9159b38e3" />
+
+**Generación de la zona CURATED**
+Se creó el contenedor CURATED, destinado a almacenar los datos procesados.
+El archivo limpio ventas_clean.csv fue generado con la columna calculada valor_total = cantidad × valor_unitario.
+
+**Validaciones realizadas:**
+
+-Separación entre datos crudos y datos procesados.
+
+-Archivo _SUCCESS confirmando ejecución correcta del flujo.
+<img width="1810" height="572" alt="image" src="https://github.com/user-attachments/assets/55a153cc-5bfd-4591-b707-916c6ffd6a3b" />
+
+**Orquestación del pipeline con Azure Data Factory**
+
+Se implementó el pipeline pipeline_dataco en Data Factory.
+**Este pipeline incluyó:**
+
+-Actividad Copy Data para mover el archivo desde RAW.
+
+-Actividad Data Flow para aplicar transformaciones y crear la columna valor_total.
+
+**Validaciones realizadas:**
+
+-Ejecución con estado Succeeded.
+
+-Tiempo de ejecución correcto.
+
+-Flujo automatizado de datos desde RAW hacia CURATED.
+
+<img width="1879" height="614" alt="image" src="https://github.com/user-attachments/assets/ef4694df-4e02-46e1-a4a4-1c820ab1f0f4" />
+
+**Lectura y validación en Databricks**
+
+Se utilizó el notebook **dataco_limpieza_azure** en Databricks para leer el archivo CSV desde el contenedor RAW.
+El código en Python cargó los datos con pandas y spark, mostrando los primeros registros y confirmando la carga de 1250 registros.
+
+**Transformaciones aplicadas:**
+
+-Visualización de registros crudos para validación.
+
+<img width="1706" height="872" alt="image" src="https://github.com/user-attachments/assets/e95b7f2b-79a8-4973-98f8-406e5875cf05" />
+
+**Script Python y conexión exitosa a Azure SQL Database**
+
+Se evidencia la implementación del script cargar_sql.py en Visual Studio Code, utilizado para establecer la conexión con la base de datos dataco_db en Azure SQL Database.
+
+El script emplea la librería pyodbc junto con el ODBC Driver 17 for SQL Server. Durante esta etapa se validó:
+
+-Conexión exitosa entre Python y Azure SQL.
+
+-Corrección del error inicial de firewall agregando la IP local en el portal de Azure.
+
+-Ejecución de sentencias SQL para limpiar y cargar la tabla ventas_hechos.
+
+<img width="1639" height="942" alt="image" src="https://github.com/user-attachments/assets/faf47aa7-debc-45ca-af31-e14301928cc2" />
+
+**Validación en Azure SQL Database**
+
+Finalmente, se ejecutaron consultas SQL en la base dataco_db para validar la carga:
+
+-Confirmación de registros cargados correctamente.
+
+-Visualización de la columna valor_total calculada.
+
+<img width="1500" height="639" alt="image" src="https://github.com/user-attachments/assets/9ca7d08d-4e30-404f-98f2-53a8b592267f" />
+
+**Conclusiones**
+
+Se logró implementar un flujo ETL completo con Data Factory, Databricks, Python y Azure SQL Database.
+
+-Los datos fueron organizados en capas RAW y CURATED, garantizando trazabilidad.
+
+-La conexión Python–SQL permite automatizar la carga de datos en la base relacional.
+
+-Las consultas en SQL validan la disponibilidad y calidad de la información procesada.
 
 
