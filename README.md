@@ -117,11 +117,11 @@ Las siguientes decisiones documentan las elecciones tecnológicas clave del proy
 
 | # | Título | Archivo |
 | :--- | :--- | :--- |
-| ADR-01 |Uso de Azure Data Factory sobre Azure Logic Apps para la orquestación del pipeline | `(adr/ADR-01.md)` |
-| ADR-02 | Uso de Azure Databricks sobre Azure Synapse Analytics para la transformación de datos | `(adr/ADR-02.md)` |
-| ADR-03 | Uso de Azure Data Lake Storage Gen2 sobre Azure Blob Storage estándar como almacenamiento raw | `(adr/ADR-03.md)` |
-| ADR-04 | Uso de Azure SQL Database sobre Azure Cosmos DB para el almacén analítico final | `(adr/ADR-04.md)` |
-| ADR-05 | Uso de Power BI Desktop sobre Azure Analysis Services para la capa de visualización | `(adr/ADR-05.md)` |
+| ADR-01 |Uso de Azure Data Factory sobre Azure Logic Apps para la orquestación del pipeline | `adr/ADR-01.md` |
+| ADR-02 | Uso de Azure Databricks sobre Azure Synapse Analytics para la transformación de datos | `adr/ADR-02.md` |
+| ADR-03 | Uso de Azure Data Lake Storage Gen2 sobre Azure Blob Storage estándar como almacenamiento raw | `adr/ADR-03.md` |
+| ADR-04 | Uso de Azure SQL Database sobre Azure Cosmos DB para el almacén analítico final | `adr/ADR-04.md` |
+| ADR-05 | Uso de Power BI Desktop sobre Azure Analysis Services para la capa de visualización | `adr/ADR-05.md` |
 
 ## C1 – Diagrama de contexto - Plataforma de datos DataCo en Azure
 
