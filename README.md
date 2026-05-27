@@ -115,8 +115,15 @@ El pipeline se ejecuta en modo batch cada 4 horas siguiendo el siguiente flujo:
 
 Las siguientes decisiones documentan las elecciones tecnológicas clave del proyecto, justificando la selección de cada servicio frente a sus alternativas en el contexto específico de DataCo. Cada ADR considera las restricciones técnicas, económicas y organizacionales definidas en el caso, siguiendo el formato estándar de Architecture Decision Records propuesto por Michael Nygard.
 
+| # | Título | Archivo |
+| :--- | :--- | :--- |
+| ADR-01 |Uso de Azure Data Factory sobre Azure Logic Apps para la orquestación del pipeline | `adr/ADR-1.md` |
+| ADR-002 | Cosmos DB como sistema de almacenamiento principal | `adr/ADR 2.md` |
+| ADR-003 | API Management como gateway de entrada | `assets/ADRS/ADR 3.md` |
+| ADR-004 | Azure Blob Storage sobre Azure Files para almacenamiento | `assets/ADRS/ADR 4.md` |
+| ADR-005 | Azure Notification Hubs sobre Azure Communication Services | `assets/ADRS/ADR 5.md` |
 
-**ADR-01 — Uso de Azure Data Factory sobre Azure Logic Apps para la orquestación del pipeline**
+**ADR-01 — **
 Estado: **Aceptado**
 
 **Contexto**
