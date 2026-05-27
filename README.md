@@ -358,7 +358,7 @@ Sin Azure Analysis Services, las consultas analíticas complejas impactan direct
 
 ## C1 – Diagrama de contexto - Plataforma de datos DataCo en Azure
 
-<img width="1287" height="737" alt="image" src="https://github.com/user-attachments/assets/b71994e7-3ea4-41a7-a384-e85581a4e0e8" />
+![Diagrama de Contexto](assets/c1-contexto.png)
 
 El diagrama de contexto presenta una visión general de la plataforma de datos de DataCo como un sistema central dentro del ecosistema de la organización.
 
@@ -374,7 +374,7 @@ Este nivel de abstracción permite entender cómo interactúan los diferentes ac
 
 ## C2 – Diagrama de Contenedores - Plataforma de datos DataCo en Azure
 
-<img width="1245" height="579" alt="image" src="https://github.com/user-attachments/assets/f787cc51-c6da-462a-8a8d-50820f5bfb17" />
+![Diagrama de Contenedores](assets/c2-contenedores.png)
 
 El diagrama de contenedores representa la arquitectura de la plataforma de datos de DataCo implementada en Microsoft Azure. Este muestra cómo los diferentes servicios trabajan de manera integrada para procesar y transformar los datos provenientes de múltiples fuentes.
 
@@ -393,7 +393,7 @@ El pipeline se ejecuta de manera automatizada cada 4 horas, permitiendo que la i
 
 ## C3 – Diagrama de Componentes - Detalle de Azure Databricks en la Plataforma DataCo
 
-<img width="1193" height="691" alt="image" src="https://github.com/user-attachments/assets/170b7ef0-4755-43bc-a353-f2dfff53387d" />
+![Diagrama de Componentes](assets/c3-componentes.png)
 
 El diagrama de componentes representa el funcionamiento interno de Azure Databricks dentro de la arquitectura de datos de DataCo. En este nivel se detallan los diferentes notebooks responsables del procesamiento y transformación de los datos.
 
@@ -411,7 +411,7 @@ Adicionalmente, los datos procesados pueden almacenarse en el Data Lake en la zo
 
 ## Arquitectura de solución - Pipeline de datos DataCo
 
-<img width="1164" height="1049" alt="image" src="https://github.com/user-attachments/assets/f28838de-aa90-41b8-aaa2-a5c74ab123d5" />
+![Diagrama de Componentes](assets/Arquitectura-de-solucion.jpg)
 
 Este flujo de procesamiento se ejecuta de forma secuencial y automatizada, asegurando que los datos pasen por cada etapa de transformación hasta estar listos para su consumo en herramientas analíticas.
 
